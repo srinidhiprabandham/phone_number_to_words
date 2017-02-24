@@ -22,7 +22,7 @@ describe Converter do
 
   describe "#number to word" do
     it "Should convert a given number to a sequence of characters" do
-      expect(Converter.new.form_word("567")).to eq [["j", "m", "p"], ["j", "m", "q"], ["j", "m", "r"], ["j", "m", "s"], ["j", "n", "p"], ["j", "n", "q"], ["j", "n", "r"], ["j", "n", "s"], ["j", "o", "p"], ["j", "o", "q"], ["j", "o", "r"], ["j", "o", "s"], ["k", "m", "p"], ["k", "m", "q"], ["k", "m", "r"], ["k", "m", "s"], ["k", "n", "p"], ["k", "n", "q"], ["k", "n", "r"], ["k", "n", "s"], ["k", "o", "p"], ["k", "o", "q"], ["k", "o", "r"], ["k", "o", "s"], ["l", "m", "p"], ["l", "m", "q"], ["l", "m", "r"], ["l", "m", "s"], ["l", "n", "p"], ["l", "n", "q"], ["l", "n", "r"], ["l", "n", "s"], ["l", "o", "p"], ["l", "o", "q"], ["l", "o", "r"], ["l", "o", "s"]]
+      expect(Converter.new.form_word("567")).to eq ["jmp", "jmq", "jmr", "jms", "jnp", "jnq", "jnr", "jns", "jop", "joq", "jor", "jos", "kmp", "kmq", "kmr", "kms", "knp", "knq", "knr", "kns", "kop", "koq", "kor", "kos", "lmp", "lmq", "lmr", "lms", "lnp", "lnq", "lnr", "lns", "lop", "loq", "lor", "los"]
     end
   end
 end

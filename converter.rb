@@ -39,7 +39,8 @@ class Converter
 
     combination = array_of_letters[1..-1].inject(array_of_letters.first) do |result, value|
       result = result.product(value).map(&:flatten)
-    end
+    end.map { |s| s.join("") }
+    p combination
   end
 end
 
