@@ -25,15 +25,20 @@
 
   IF we have to calculate the words that could be formed for a given sequence of numbers say 567
   then the possible combinations would be like so - 
+
     jmp jmq jmr jms jnp jnq jnr jns jop joq jor jos 
+
     kmp kmq kmr kms knp knq knr kns kop koq kor kos 
+
     lmp lmq lmr lms lnp lnq lnr lns lop loq lor los 
 
-  That is we start at 5 -> [JKL] and for every character in 5 we can map to every character in the other two numbers 6 and 7.
+  That is we start at 5 -> [JKL] and for every character in 5 we can map to every character in the other two numbers 6 -> [MNO]and 7 -> [PQRS].
 
 
   This leaves us with a total combination of 4^10 = 1,04,856 for a 10 digit number.
 
   We will use ordered pair to retrieve all permutation and combinations for the given number.
+
   And convert the resulting pairs to `Set`.
+
   Once we have the combination set we will to a `Set` intersection with the provided dictionary to get the resulting word.
