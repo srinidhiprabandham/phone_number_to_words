@@ -9,7 +9,7 @@ class Converter
 
   def initialize
     letters; word_list
-    #get_input
+    get_input
   end
 
   # Hash which we will use to generate the combinations for a given number
@@ -36,21 +36,16 @@ class Converter
     @word_list ||= Set.new File.read("dictionary.txt").split("\n").map(&:downcase)
   end
 
-  # This take a number and generates all possible combination of words using
-  # Cartesian product
   def form_words(number = "6686787825")
     matching = @word_list & Set.new(combination(number.chars))
     p matching.to_a
   end
 
+  # This take a number and generates all possible combination of words using
+  # Cartesian product
   def combination(chars_array)
-    array_of_letters = chars_array.map do |n|
-      @letters[n]
-    end
-
-    combination = array_of_letters[1..-1].inject(array_of_letters.first) do |result, value|
-      result = result.product(value).map(&:flatten)
-    end.map { |s| s.join("") }
+    array_of_letters = chars_array.map { |digit| @letters[digit] }
+    combination = array_of_letters.shift.product(*array_of_letters).map(&:join)
   end
 end
 
