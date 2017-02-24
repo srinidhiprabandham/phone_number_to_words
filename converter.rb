@@ -37,8 +37,37 @@ class Converter
   end
 
   def form_words(number = "6686787825")
-    matching = @word_list & Set.new(combination(number.chars))
-    p matching.to_a
+    matrix = split_into_sequences(number).map do |a, b|
+      words_for_a = @word_list & Set.new(combination(a.chars))
+      words_for_b = @word_list & Set.new(combination(b.chars))
+      words_for_a.to_a.product words_for_b.to_a
+    end.reject(&:empty?)
+
+    combination_word_list = []
+    matrix.flatten.each_slice(2) { |comb| combination_word_list.push(comb) }
+
+    final_word = (@word_list & Set.new(combination(number.chars))).first
+
+    combination_word_list.map! do |array|
+      if array.join("") == final_word
+        final_word
+      else
+        array
+      end
+    end
+
+    puts combination_word_list.inspect
+    combination_word_list
+  end
+
+  def split_into_sequences(number)
+    [
+      [number[0..2], number[3..-1]],
+      [number[0..3], number[4..-1]],
+      [number[0..4], number[5..-1]],
+      [number[0..5], number[6..-1]],
+      [number[0..6], number[7..-1]]
+    ]
   end
 
   # This take a number and generates all possible combination of words using

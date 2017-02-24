@@ -22,25 +22,41 @@ describe Converter do
 
   describe "#combination" do
     it "Should convert a given number to a sequence of characters" do
-      expect(Converter.new.combination("567".chars)).to eq ["jmp", "jmq", "jmr", "jms", "jnp", "jnq", "jnr", "jns", "jop", "joq", "jor", "jos", "kmp", "kmq", "kmr", "kms", "knp", "knq", "knr", "kns", "kop", "koq", "kor", "kos", "lmp", "lmq", "lmr", "lms", "lnp", "lnq", "lnr", "lns", "lop", "loq", "lor", "los"]
-    end
-  end
-
-  describe "#matching from_word" do
-    it "should return a match of words that exists in the dictionary" do
-      expect(Converter.new.form_words("567")).to eq ["kop", "kor", "kos", "lop"]
+      expect(Converter.new.combination("567".chars)).to eq ["jmp", "jmq", "jmr",
+                                                            "jms", "jnp", "jnq",
+                                                            "jnr", "jns", "jop",
+                                                            "joq", "jor", "jos",
+                                                            "kmp", "kmq", "kmr",
+                                                            "kms", "knp", "knq",
+                                                            "knr", "kns", "kop", 
+                                                            "koq", "kor", "kos",
+                                                            "lmp", "lmq", "lmr",
+                                                            "lms", "lnp", "lnq",
+                                                            "lnr", "lns", "lop",
+                                                            "loq", "lor", "los"]
     end
   end
 
   describe "given input number as - 6686787825" do
     it "should return a combination of matching words" do
-      expect(Converter.new.form_words("6686787825")).to eq([["motor", "usual"], ["noun", "struck"], ["nouns", "truck"], ["nouns", "usual"], ["onto", "struck"], "motortruck"])
+      expect(Converter.new.form_words("6686787825")).to eq([["noun", "struck"], 
+                                                            ["onto", "struck"], 
+                                                            "motortruck", 
+                                                            ["motor", "usual"], 
+                                                            ["nouns", "truck"], 
+                                                            ["nouns", "usual"]])
     end
   end
 
   describe "given input number as - 2282668687" do
     it "should return a combination of matching words" do
-      expect(Converter.new.form_words("6686787825")).to eq([["act", "amounts"], ["act", "contour"], ["acta", "mounts"], ["bat", "amounts"], ["bat", "contour"], ["cat", "contour"], "catamounts"])
+      expect(Converter.new.form_words("2282668687")).to eq([["act", "amounts"], 
+                                                            ["act", "contour"], 
+                                                            ["bat", "amounts"], 
+                                                            ["bat", "contour"], 
+                                                            "catamounts", 
+                                                            ["cat", "contour"], 
+                                                            ["acta", "mounts"]])
     end
   end
 end
