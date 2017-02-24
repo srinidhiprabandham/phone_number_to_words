@@ -28,7 +28,19 @@ describe Converter do
 
   describe "#matching from_word" do
     it "should return a match of words that exists in the dictionary" do
-      expect(Converter.new.form_word).to eq ["kop", "kor", "kos", "lop"]
+      expect(Converter.new.form_words("567")).to eq ["kop", "kor", "kos", "lop"]
+    end
+  end
+
+  describe "given input number as - 6686787825" do
+    it "should return a combination of matching words" do
+      expect(Converter.new.form_words("6686787825")).to eq([["motor", "usual"], ["noun", "struck"], ["nouns", "truck"], ["nouns", "usual"], ["onto", "struck"], "motortruck"])
+    end
+  end
+
+  describe "given input number as - 2282668687" do
+    it "should return a combination of matching words" do
+      expect(Converter.new.form_words("6686787825")).to eq([["act", "amounts"], ["act", "contour"], ["acta", "mounts"], ["bat", "amounts"], ["bat", "contour"], ["cat", "contour"], "catamounts"])
     end
   end
 end

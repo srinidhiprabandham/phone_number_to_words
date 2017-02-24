@@ -9,6 +9,7 @@ class Converter
 
   def initialize
     letters; word_list
+    #get_input
   end
 
   # Hash which we will use to generate the combinations for a given number
@@ -25,6 +26,11 @@ class Converter
     }
   end
 
+  def get_input
+    puts "Please enter the 10 digit number :"
+    form_words gets.chomp
+  end
+
   # Load the list of words in the dictionary. 
   def word_list
     @word_list ||= Set.new File.read("dictionary.txt").split("\n").map(&:downcase)
@@ -32,7 +38,7 @@ class Converter
 
   # This take a number and generates all possible combination of words using
   # Cartesian product
-  def form_word(number = "567")
+  def form_words(number = "6686787825")
     matching = @word_list & Set.new(combination(number.chars))
     p matching.to_a
   end
@@ -48,4 +54,4 @@ class Converter
   end
 end
 
-Converter.new.form_word
+Converter.new
