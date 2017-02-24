@@ -20,9 +20,15 @@ describe Converter do
     end
   end
 
-  describe "#number to word" do
+  describe "#combination" do
     it "Should convert a given number to a sequence of characters" do
-      expect(Converter.new.form_word("567")).to eq ["jmp", "jmq", "jmr", "jms", "jnp", "jnq", "jnr", "jns", "jop", "joq", "jor", "jos", "kmp", "kmq", "kmr", "kms", "knp", "knq", "knr", "kns", "kop", "koq", "kor", "kos", "lmp", "lmq", "lmr", "lms", "lnp", "lnq", "lnr", "lns", "lop", "loq", "lor", "los"]
+      expect(Converter.new.combination("567".chars)).to eq ["jmp", "jmq", "jmr", "jms", "jnp", "jnq", "jnr", "jns", "jop", "joq", "jor", "jos", "kmp", "kmq", "kmr", "kms", "knp", "knq", "knr", "kns", "kop", "koq", "kor", "kos", "lmp", "lmq", "lmr", "lms", "lnp", "lnq", "lnr", "lns", "lop", "loq", "lor", "los"]
+    end
+  end
+
+  describe "#matching from_word" do
+    it "should return a match of words that exists in the dictionary" do
+      expect(Converter.new.form_word).to eq ["kop", "kor", "kos", "lop"]
     end
   end
 end

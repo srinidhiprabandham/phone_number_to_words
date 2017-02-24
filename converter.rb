@@ -33,14 +33,18 @@ class Converter
   # This take a number and generates all possible combination of words using
   # Cartesian product
   def form_word(number = "567")
-    array_of_letters = number.chars.map do |n|
+    matching = @word_list & Set.new(combination(number.chars))
+    p matching.to_a
+  end
+
+  def combination(chars_array)
+    array_of_letters = chars_array.map do |n|
       @letters[n]
     end
 
     combination = array_of_letters[1..-1].inject(array_of_letters.first) do |result, value|
       result = result.product(value).map(&:flatten)
     end.map { |s| s.join("") }
-    p combination
   end
 end
 
